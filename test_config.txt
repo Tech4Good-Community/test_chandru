@@ -1,0 +1,8 @@
+Configuration configManager = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+KeyValueConfigurationCollection confCollection = configManager.AppSettings.Settings;
+
+confCollection["YourKey"].Value = "YourNewKey";
+
+
+configManager.Save(ConfigurationSaveMode.Modified);
+ConfigurationManager.RefreshSection(configManager.AppSettings.SectionInformation.Name);
